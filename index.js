@@ -1,4 +1,5 @@
 const formular = document.querySelector('form');
+const textBox = document.querySelector('input');
 
 const newsTake = (event) => {
   event.preventDefault();
@@ -8,3 +9,14 @@ const newsTake = (event) => {
 };
 
 formular.addEventListener('submit', newsTake);
+
+const checkBox = (event) => {
+  if (textBox.value === '' || !textBox.value.includes('@')) {
+    textBox.classList.add('alertInput');
+  } else {
+    textBox.classList.remove('alertInput');
+  }
+};
+
+formular.addEventListener('submit', newsTake);
+textBox.addEventListener('input', checkBox);
